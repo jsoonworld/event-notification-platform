@@ -1,0 +1,41 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "결제 완료 알림",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*주문번호:*\n[(${orderId})]"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*결제 ID:*\n[(${paymentId})]"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*금액:*\n[(${amount})] [(${currency})]"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "moalog notification platform"
+        }
+      ]
+    }
+  ]
+}

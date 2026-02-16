@@ -1,0 +1,41 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": ":warning: 결제 실패 알림",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*주문번호:*\n[(${orderId})]"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*결제 ID:*\n[(${paymentId})]"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*실패 사유:*\n[(${failureReason})]"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": ":rotating_light: 긴급 확인 필요 | moalog notification platform"
+        }
+      ]
+    }
+  ]
+}

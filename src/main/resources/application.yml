@@ -55,3 +55,6 @@ notification:
       from: ${NOTIFICATION_EMAIL_FROM:noreply@moalog.com}
   slack:
     webhook-url: ${SLACK_WEBHOOK_URL:https://hooks.slack.com/services/placeholder}
+  channels:
+    push:
+      enabled: false
