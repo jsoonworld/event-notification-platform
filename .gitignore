@@ -1,2 +1,17 @@
 # Implementation plan documents (local only)
 docs/implementation-plan/
+
+# Gradle
+.gradle/
+build/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store

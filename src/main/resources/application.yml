@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: notification-platform
+
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      max-poll-records: 10
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    cache: true
+
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      fail-on-unknown-properties: false
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+notification:
+  retry:
+    max-attempts: 3
+    initial-interval-ms: 1000
+    multiplier: 2.0
+  template:
+    email:
+      from: ${NOTIFICATION_EMAIL_FROM:noreply@moalog.com}
+  slack:
+    webhook-url: ${SLACK_WEBHOOK_URL:https://hooks.slack.com/services/placeholder}

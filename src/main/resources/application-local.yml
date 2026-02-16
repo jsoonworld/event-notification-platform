@@ -1,0 +1,28 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5436/notification_db
+    username: ${DB_USERNAME:moalog}
+    password: ${DB_PASSWORD:moalog_local}
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+  mail:
+    host: localhost
+    port: 1025
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+logging:
+  level:
+    com.jsoonworld.notification: DEBUG
+    org.springframework.r2dbc: DEBUG

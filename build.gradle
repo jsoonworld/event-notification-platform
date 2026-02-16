@@ -1,0 +1,75 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.jsoonworld'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '21'
+    targetCompatibility = '21'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Reactive Web
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // Kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    // R2DBC + PostgreSQL
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    runtimeOnly 'org.postgresql:r2dbc-postgresql'
+
+    // Email + Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // Redis Reactive
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+
+    // Actuator + Prometheus
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    // Validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // Jackson
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+    // Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation 'org.testcontainers:testcontainers'
+    testImplementation 'org.testcontainers:postgresql'
+    testImplementation 'org.testcontainers:kafka'
+    testImplementation 'org.testcontainers:r2dbc'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

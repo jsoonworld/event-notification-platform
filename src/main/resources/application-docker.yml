@@ -1,0 +1,28 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://notification-postgres:5432/notification_db
+    username: ${DB_USERNAME:moalog}
+    password: ${DB_PASSWORD:moalog_local}
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+      password: ${REDIS_PASSWORD:moalog_redis_local}
+
+  kafka:
+    bootstrap-servers: fluxpay-kafka:9092
+
+  mail:
+    host: mailhog
+    port: 1025
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+logging:
+  level:
+    com.jsoonworld.notification: INFO
